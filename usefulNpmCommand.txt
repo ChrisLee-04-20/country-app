@@ -1,0 +1,10 @@
+//import fontawesome or react-icons for icons
+    npm i --save @fortawesome/fontawesome-svg-core
+    npm install --save @fortawesome/free-solid-svg-icons
+    npm install --save @fortawesome/react-fontawesome
+    npm install react-icons --save
+
+// react routers install router v6
+    npm install react-router-dom@6  
+
+             

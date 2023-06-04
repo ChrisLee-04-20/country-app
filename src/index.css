@@ -1,13 +1,107 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body {
+    max-height: 100%;
+}
+
+/* header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    min-width: 15rem;
+    flex-wrap: nowrap;
+    padding-inline: 1rem;
+}
+
+header.dark-theme{
+    background: hsl(209, 23%, 22%);
+    color: white;
+}
+
+.change-theme-btn {
+    display: flex;
+    align-items: center;
+    color: black;
+    column-gap: 0.5rem;
+    padding: 1rem;
+}
+
+.change-theme-btn.dark-theme {
+    color: white;
+}
+
+.change-theme-btn:hover {
+    cursor: pointer;
+    background-color: green;
+}
+
+.change-theme-btn.dark-theme:hover {
+    background-color: black;
+}
+
+/* header */
+
+body {
+    font-size: 16px;
+    min-height: 100vh;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+main.dark-theme {
+    background-color: hsl(207, 26%, 17%);
+}
+
+.countries-container {
+    margin-top: 2rem;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.country-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    border: 1px solid black;
+}
+
+.country-card > img {
+    max-width: 15rem;
+    object-fit: cover;
+}
+
+img {
+    display: block;
+    max-height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+@media screen and (width > 720px) {
+    .countries-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (width > 1440px) {
+    .countries-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
