@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Search from "./Search";
 import { Link } from "react-router-dom";
+import { DarkModeContext } from "../../App.js"
 
-const Countries = ({countries, error, darkMode}) => {
+const Countries = ({countries, error}) => {
     const [searchInput, setSearchInput] = useState(""); 
     const [filteredCountries, setFilteredCountries] = useState([]);
     const [filteredRegion, setFilteredRegion] = useState("");
     const [allRegion, setAllRegion] = useState(null);
+    const darkMode = useContext(DarkModeContext);
 
     const handleSearchInput = (e) => {
         setSearchInput(e.target.value);
@@ -19,7 +21,6 @@ const Countries = ({countries, error, darkMode}) => {
     const filterCountries = () => {
 
         if (filteredRegion === "") {
-            console.log("set default countries")
             setFilteredCountries(countries);
             return;
         }

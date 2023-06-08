@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
+import { DarkModeContext } from "../../../App.js"
 
-const Country = ({darkMode}) => {
+const Country = () => {
     
     const [isRender, setIsRender] = useState(false);
     const location = useLocation();
     const [country, setCountry] = useState([]); 
     const [renderContent, setRenderContent] = useState("");
+    const darkMode = useContext(DarkModeContext);
 
     const renderCountryContent = () => {
         setRenderContent(
-            <div className={darkMode} >
-                <Link to="/">
-                    Back
+            <div className={"country-container " + darkMode} >
+                <Link to="/" className={darkMode}>
+                    <a>Back</a>
                 </Link>
                 <img src={country.flag} />
                 <h2>{country.name}</h2>
                 <div>
-                    <p>Native Name: {country.nativeNmae}</p>
+                    <p>Native Name: {country.nativeName}</p>
                     <p>Population: {country.population}</p>
                     <p>Region: {country.region}</p>
                     <p>Sub Region: {country.subregion}</p>
@@ -46,7 +48,7 @@ const Country = ({darkMode}) => {
             setCountry(location.state.country.country);   
             renderCountryContent();
         }
-    }, [country])
+    }, [country, darkMode])
 
     return (
         <>
