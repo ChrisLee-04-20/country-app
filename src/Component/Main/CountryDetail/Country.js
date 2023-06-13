@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { DarkModeContext } from "../../../App.js"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Country = () => {
     
@@ -13,30 +15,33 @@ const Country = () => {
     const renderCountryContent = () => {
         setRenderContent(
             <div className={"country-container " + darkMode} >
-                <Link to="/" className={darkMode}>
-                    <a>Back</a>
+                <Link to="/" className={"home-button " + darkMode}>
+                    <FontAwesomeIcon icon={faArrowLeft} />
+                    <p>Black</p>
                 </Link>
-                <img src={country.flag} />
-                <h2>{country.name}</h2>
-                <div>
-                    <p>Native Name: {country.nativeName}</p>
-                    <p>Population: {country.population}</p>
-                    <p>Region: {country.region}</p>
-                    <p>Sub Region: {country.subregion}</p>
-                    <p>Capital: {country.capital}</p>
-                </div>
+                <div className={"country-detail-card " + darkMode}>
+                    <img src={country.flag} />
+                    <h2>{country.name}</h2>
+                    <div className={"country-geog-info " + darkMode}>
+                        <p><span className="bold">Native Name:</span> {country.nativeName}</p>
+                        <p><span className="bold">Population: </span>{country.population}</p>
+                        <p><span className="bold">Region: </span>{country.region}</p>
+                        <p><span className="bold">Sub Region: </span>{country.subregion}</p>
+                        <p><span className="bold">Capital: </span>{country.capital}</p>
+                    </div>
 
-                <div>
-                    <p>Top Level Domain: {country.topLevelDomain}</p>
-                    {country.currencies && <p>Currencies: {country.currencies[0].name}</p>}
-                    <p>
-                        languages: {country.languages && country.languages.map((data) => data.name + " ")}
-                    </p>
-                </div>
+                    <div className={"country-culture-info " + darkMode}>
+                        <p><span className="bold">Top Level Domain: </span>{country.topLevelDomain}</p>
+                        {country.currencies && <p><span className="bold">Currencies: </span>{country.currencies[0].name}</p>}
+                        <p>
+                        <span className="bold">Languages: </span>{country.languages && country.languages.map((data) => data.name + " ")}
+                        </p>
+                    </div>
 
-                <div>
-                    <h3>Border Countries</h3>
-                    {country.borders && country.borders.map((data) => <button key={data}>{data}</button>)}
+                    <div className={"country-border-info " + darkMode}>
+                        <h3>Border Countries</h3>
+                        {country.borders && country.borders.map((data) => <button key={data}>{data}</button>)}
+                    </div>
                 </div>
             </div>
         )

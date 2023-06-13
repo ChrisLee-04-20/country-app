@@ -48,8 +48,7 @@ const Countries = ({countries, error}) => {
             }
         });
 
-        if (filteredResult.length === 0 && filteredRegion === "" ) {                //check the use input have result or not and the 
-            console.log("o1")
+        if (filteredResult.length === 0 && filteredRegion === "" ) {                //check the use input have result or not
             setFilteredCountries(countries);
             return;
         }
@@ -92,16 +91,16 @@ const Countries = ({countries, error}) => {
                 {!error && filteredCountries && filteredCountries.map((country) => {
                     const { numericCode, name, population, region, capital, flag } = country;
                     return (
-                        <Link to={`country/${name}`} key={name} state={{ country: { country } }} >           {/* using the router useLocation to pass the current country object to the country.js */}
-                            <article className={"country-card " + darkMode} key={numericCode}>
+                        <Link to={`country/${name}`} className={"country-card " + darkMode} key={numericCode} state={{ country: { country } }} >           {/* using the router useLocation to pass the current country object to the country.js */}
+                            {/* <article className={"country-card " + darkMode} key={numericCode}> */}
                                 <img className="flag" src={flag} alt={name} />
                                 <div className="card-body">
-                                    <h3 className="card-title">{name}</h3>
-                                    <h4>Population: {population}</h4>
-                                    <h4>Region: {region}</h4>
-                                    <h4>Capital: {capital}</h4>
+                                    <h4 className="card-title">{name}</h4>
+                                    <h5>Population: {population}</h5>
+                                    <h5>Region: {region}</h5>
+                                    <h5>Capital: {capital}</h5>
                                 </div>
-                            </article>
+                            {/* </article> */}
                         </Link>
                     );
                 })}
