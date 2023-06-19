@@ -3,6 +3,7 @@
 :root {
     --Dark-Mode-Background: hsl(207, 26%, 17%);
     --Dark-Mode-Compoment: hsl(209, 23%, 22%);
+    --Transition:  all, 1s ease, 1s;
 }
 
 *, *::before, *::after {
@@ -32,10 +33,6 @@ header.dark-theme{
     color: white;
 }
 
-h1 {
-    font-size: 20px;
-}
-
 .change-theme-btn {
     display: flex;
     align-items: center;
@@ -50,7 +47,8 @@ h1 {
 
 .change-theme-btn:hover {
     cursor: pointer;
-    background-color: green;
+    background-color: grey;
+    transition: var(--Transition);
 }
 
 .change-theme-btn.dark-theme:hover {
@@ -65,6 +63,10 @@ body {
     font-family: "Nunito Sans", sans-serif;
 }
 
+main {
+    min-height: 100vh;
+}
+
 main.dark-theme {
     background-color: var(--Dark-Mode-Background);
 }
@@ -72,10 +74,10 @@ main.dark-theme {
 /* SearchBar */
 
 .search {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     row-gap: 2rem;
     padding: 2rem;
-    grid-template-columns: 1fr;
 }
 
 .search-bar-container {
@@ -133,26 +135,20 @@ option {
 
 .countries-container {
     margin-top: 1rem;
-    padding-inline: 2rem;
+    margin-inline: 2rem;
     display: grid;
-    place-items: center;
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
     gap: 2rem;
+    place-items: center;
 }
 
 .country-card {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    height: 25rem;
+    display: grid;
+    grid-auto-rows: 1fr;
     box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-}
-
-.country-card > * {
-    flex-basis: 50%;
-    flex-shrink: 0;
-    flex-grow: 0;
+    align-self: self-start;
+    height: 100%;
 }
 
 .country-card.dark-theme {
@@ -161,12 +157,10 @@ option {
 }
 
 .flag {
+    height: 100%;
     border-radius: 10px 10px 0px 0px;
     object-fit: cover;  
     aspect-ratio: 16/9;
-    height: 50%;
-    max-width: 100%;
-    /* object-position: center; */
 }
 
 .card-title {
@@ -174,9 +168,7 @@ option {
 }
 
 .card-body {
-    /* display: flex;
-    flex-direction: column; */
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
     line-height: 2rem;
 }
 
@@ -186,6 +178,7 @@ option {
     display: grid;
     row-gap: 2rem;
     padding: 2rem;
+    min-height: 100vh;
 }
 
 .country-container.dark-theme {
@@ -193,10 +186,11 @@ option {
 }
 
 .home-button {
-    max-width: 40%;
+    max-width: 33%;
     max-height: 3rem;
     padding: 1rem;
     box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,7 +210,15 @@ option {
     background-color: grey;
 }
 
-.country-detail-card {
+.country-detail-flag {
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    width: 100%;
+}
+
+.country-detail-card-body {
     display: grid;
     row-gap: 1.5rem;
     line-height: 1.75rem;
@@ -226,15 +228,13 @@ option {
     color: white;
 }
 
-.country-detail-card > img {
-    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.3);
-}
-
 /* Country */
 
-
-
 /* reset */
+
+h1 {
+    font-size: 20px;
+}
 
 img {
     max-width: 100%;
@@ -256,10 +256,71 @@ a {
     .countries-container {
         grid-template-columns: 1fr 1fr;
     }
+
+    .search {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .search-bar-container {
+        flex-basis: 40%;
+    }
+
+    .region-filter {
+        flex-basis: 15%;
+    }
+
+    .country-container {
+        height: 100vh;
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    .country-card {
+        max-width: 25rem;
+    }
+
+    .home-button-span {
+        max-height: 10rem;
+    }
+    
+    .home-button {
+        max-width: 10%;
+        min-width: 10rem;
+    }
+
+    .country-detail-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+        grid-row: span 3;
+        justify-content: center;
+    }
+
+    .country-detail-card-body {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        max-height: 20rem;
+        margin-top: 2rem;
+    }
+    
+    .country-detail-card-body > * {
+        max-width: 100%;
+    }
+
+    .country-detail-card-body > h2, .country-border-info {
+        grid-column: span 2;
+    }
+
 }
 
-@media screen and (width > 1440px) {
+@media screen and (width > 1200px) {
     .countries-container {
         grid-template-columns: repeat(4, 1fr);
     }
+
+    .country-detail-card {
+        column-gap: 5rem;
+    }
+
 }

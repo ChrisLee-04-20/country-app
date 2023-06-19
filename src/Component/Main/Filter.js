@@ -15,7 +15,7 @@ const Filter = ({handleFilterByRegion, allRegion}) => {
     }, [allRegion])
 
     return (
-        <select className={"region-filter " + darkMode} onClick={handleFilterByRegion} >
+        <select className={"region-filter " + darkMode} onChange={handleFilterByRegion} >
             <option className={"region-filter-option " + darkMode} value="" key="">Filter by region</option>
            { 
             isRenderAllRegion && Array.from(allRegion).map(region => <option className={"region-filter-option " + darkMode} value={region} key={region}>{region}</option>)
