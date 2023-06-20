@@ -3,7 +3,7 @@
 :root {
     --Dark-Mode-Background: hsl(207, 26%, 17%);
     --Dark-Mode-Compoment: hsl(209, 23%, 22%);
-    --Transition:  all, 1s ease, 1s;
+    --Transition: all, 1s ease;
 }
 
 *, *::before, *::after {
@@ -47,12 +47,12 @@ header.dark-theme{
 
 .change-theme-btn:hover {
     cursor: pointer;
-    background-color: grey;
+    background-color: aqua;
     transition: var(--Transition);
 }
 
 .change-theme-btn.dark-theme:hover {
-    background-color: black;
+    background-color: grey;
 }
 
 /* header */
@@ -134,8 +134,7 @@ option {
 /* SearchBar */
 
 .countries-container {
-    margin-top: 1rem;
-    margin-inline: 2rem;
+    margin: 1rem 2rem;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -149,6 +148,7 @@ option {
     border-radius: 10px;
     align-self: self-start;
     height: 100%;
+    width: 100%;
 }
 
 .country-card.dark-theme {
@@ -199,6 +199,7 @@ option {
 
 .home-button:hover {
     background-color: aqua;
+    transition: var(--Transition);
 }
 
 .home-button.dark-theme {
@@ -226,6 +227,37 @@ option {
 
 .country-detail-card.dark-theme {
     color: white;
+}
+
+.border-countries {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.border-country-btn {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    flex-basis: 6rem;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.border-country-btn:hover {
+    background-color: aqua;
+    cursor: pointer;
+    transition: var(--Transition);
+}
+
+.border-country-btn.dark-theme {
+    background-color: var(--Dark-Mode-Compoment);
+    color: white;
+}
+
+.border-country-btn:hover.dark-theme {
+    background-color: grey;
 }
 
 /* Country */

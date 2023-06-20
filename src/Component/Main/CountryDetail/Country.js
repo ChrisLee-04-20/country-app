@@ -43,7 +43,9 @@ const Country = () => {
 
                         <div className={"country-border-info " + darkMode}>
                             <h3>Border Countries</h3>
-                            {country.borders && country.borders.map((data) => <button key={data}>{data}</button>)}
+                            <div className={"border-countries " + darkMode}>
+                                {country.borders && country.borders.map((data) => <button className={"border-country-btn " + darkMode} key={data}>{data}</button>)}
+                            </div>
                         </div>
                     </div>
                 </div>
