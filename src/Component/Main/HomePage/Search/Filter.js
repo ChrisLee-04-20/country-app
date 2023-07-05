@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { DarkModeContext } from "../../App.js"
+import { DarkModeContext } from "../../../../App.js"
 
 
 const Filter = ({handleFilterByRegion, allRegion}) => {

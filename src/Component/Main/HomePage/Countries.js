@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import Search from "./Search";
+import Search from "./Search/Search";
 import { Link } from "react-router-dom";
-import { DarkModeContext } from "../../App.js"
+import { DarkModeContext } from "../../../App.js"
 
 const Countries = ({countries, error}) => {
     const [searchInput, setSearchInput] = useState(""); 

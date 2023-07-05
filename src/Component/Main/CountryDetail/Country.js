@@ -5,22 +5,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Country = () => {
-    
+
     const [isRender, setIsRender] = useState(false);
     const location = useLocation();
-    const [country, setCountry] = useState([]); 
+    const [country, setCountry] = useState([]);
     const [renderContent, setRenderContent] = useState("");
     const darkMode = useContext(DarkModeContext);
 
     const renderCountryContent = () => {
         setRenderContent(
             <div className={"country-container " + darkMode} >
-                {/* <div className="home-button-span"> */}
-                    <Link to="/" className={"home-button " + darkMode}>
-                        <FontAwesomeIcon icon={faArrowLeft} />
-                        <p>Black</p>
-                    </Link>
-                {/* </div> */}
+                <Link to="/" className={"home-button " + darkMode}>
+                    <FontAwesomeIcon icon={faArrowLeft} />
+                    <p>Black</p>
+                </Link>
                 <div className={"country-detail-card " + darkMode}>
                     <img className="country-detail-flag" src={country.flag} />
                     <div className={"country-detail-card-body " + darkMode}>
@@ -37,7 +35,7 @@ const Country = () => {
                             <p><span className="bold">Top Level Domain: </span>{country.topLevelDomain}</p>
                             {country.currencies && <p><span className="bold">Currencies: </span>{country.currencies[0].name}</p>}
                             <p>
-                            <span className="bold">Languages: </span>{country.languages && country.languages.map((data) => data.name + " ")}
+                                <span className="bold">Languages: </span>{country.languages && country.languages.map((data) => data.name + " ")}
                             </p>
                         </div>
 
@@ -56,7 +54,7 @@ const Country = () => {
     useEffect(() => {
         if (location.state.country) {
             setIsRender(true);
-            setCountry(location.state.country.country);   
+            setCountry(location.state.country.country);
             renderCountryContent();
         }
     }, [country, darkMode])

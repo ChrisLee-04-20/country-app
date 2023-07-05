@@ -1,6 +1,6 @@
 import React, {createContext, useState, useEffect} from "react";
 import Header from "./Component/Header/Header";
-import Countries from "./Component/Main/Countries";
+import Countries from "./Component/Main/HomePage/Countries";
 import Country from "./Component/Main/CountryDetail/Country";
 import "./index.css";
 import useFetch from "./useHook/useFetch";
@@ -20,10 +20,6 @@ function App() {
       setDarkMode("");
     }
   }
-
-  useEffect(() => {
-
-  }, [darkMode]);
 
   return (
     <DarkModeContext.Provider value={darkMode}>
