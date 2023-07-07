@@ -17,7 +17,7 @@ const Country = () => {
             <div className={"country-container " + darkMode} >
                 <Link to="/" className={"home-button " + darkMode}>
                     <FontAwesomeIcon icon={faArrowLeft} />
-                    <p>Black</p>
+                    <p>Back</p>
                 </Link>
                 <div className={"country-detail-card " + darkMode}>
                     <img className="country-detail-flag" src={country.flag} />

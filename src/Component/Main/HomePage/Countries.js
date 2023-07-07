@@ -53,7 +53,6 @@ const Countries = ({countries, error}) => {
             return;
         }
 
-
         if (filteredResult.length === 0 && filteredRegion !== "")  {                //return the orginal filtered region countries if the cannot find the search country
             return;
         }
